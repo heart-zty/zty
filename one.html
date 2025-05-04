@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳转页面</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            flex-direction: column;
+			background-image: url("backimg/1.png");
+			background-size: inherit; 
+			background-position: center; 
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+        
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #4a6bdf;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(74, 107, 223, 0.4);
+        }
+        
+        .btn:hover {
+            background-color: #3a56c4;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 107, 223, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>欢迎来到跳转页面</h1>
+        <p>点击下方按钮将跳转到包含音乐播放器和流动背景的主页面</p>
+        <button class="btn" id="jumpBtn">前往主页面</button>
+		<button class="btn" id="change">更换壁纸</button>
+    </div>
+
+    <script>
+		function $(name){
+			return document.querySelector(name)
+		}
+        document.getElementById('jumpBtn').addEventListener('click', function() {
+            window.location.href = 'index.html'; 
+        });
+		const bacakimgFiles = [
+		    {path: 'backimg/1.png' },
+		    {path: 'backimg/2.png' },
+		    {path: 'backimg/3.png' },
+		    {path: 'backimg/4.png' },
+		    {path: 'backimg/5.png' },
+			{path: 'backimg/6.png' },
+		];
+		$("#change").addEventListener("click",function(){
+			let num = parseInt(Math.random()*bacakimgFiles.length)
+			document.querySelector("body").style.backgroundImage = `url('${bacakimgFiles[num].path}')`
+		})
+    </script>
+</body>
+</html>

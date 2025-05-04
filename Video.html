@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的第9章项目</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 新增导航栏样式 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+       
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .content-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            flex: 1 1 1000px;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .card p {
+            margin-bottom: 15px;
+        }
+        
+		.card .video video{
+			width: 250px;
+		}
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            
+            .search-container {
+                max-width: 100%;
+            }
+            
+            .card {
+                flex: 1 1 auto;
+            }
+			
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 新增导航栏 -->
+        <nav>
+            <div class="logo">zty</div>
+            <ul class="nav-links">
+				<li><a href="index.html">返回上个网页</a></li>
+                <li><a href="#wa">瓦洛兰特</a></li>
+                <li><a href="#lol">英雄联盟</a></li>
+                <li><a href="#apex">Apex</a></li>
+                <li><a href="#csgo">csgo</a></li>
+            </ul>
+        </nav>
+        
+        <header>
+            <h1>欢迎来到我的游戏集锦</h1>
+        </header>
+        
+        <div class="content-section">
+            <div class="card">
+				<a name="wa"></a>
+                <h2>瓦洛兰特</h2>
+                <div class="video">
+					<video src="video/wa/wa.mp4" controls="controls"></video>
+					
+				</div>
+            </div>
+            
+            <div class="card">
+				<a name="lol"></a>
+                <h2>英雄联盟</h2>
+                <div class="video">
+				<video src="video/lol/lol.mp4" controls="controls"></video>
+				</div>
+            </div>
+            
+            <div class="card">
+				<a name="apex"></a>
+                <h2>Apex</h2>
+                <div class="video">
+					<video src="video/apex/apex.mp4" controls="controls"></video>
+				</div>
+            </div>
+			<div class="card">
+				<a name="csgo"></a>
+				<h2>csgo</h2>
+				<div class="video">
+					<video src="video/csgo/csgo.mp4" controls="controls"></video>
+			</div>
+    </div>
+	<script>
+	</script>
+</body>
+</html>
