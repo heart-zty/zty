@@ -138,6 +138,7 @@
 		  .card .box{
 			  display: flex;
 			  justify-content: space-around;
+			  flex-wrap: wrap;
 		  }
 		  .card .box .sbox{
 			  display: flex;
@@ -149,12 +150,19 @@
 		  	width: 305px;
 		  	
 		  }
+		  .card .box .sbox p{
+			  color: #3498db;
+			  margin-bottom: 15px;
+			  font-size: 25px;
+			  padding-bottom: 10px;
+		  }
 		  .card .box .sbox button{
 			  margin-left: 80px;
 		  }
 		  .card .box .sbox h4{
 			  color: #3498db;
 			  margin-bottom: 15px;
+			  border-bottom: 2px solid #eee;
 			  padding-bottom: 10px;
 		  }
 		  
@@ -226,7 +234,16 @@
             .card {
                 flex: 1 1 auto;
             }
-			
+			.card .achievement img:active {
+			    transform: scale(2);
+			    position: relative;
+			    z-index: 100;
+			  }
+			.card .right img:active {
+			    transform: scale(1);
+			    position: relative;
+			    z-index: 100;
+			  }
         }
     </style>
 </head>
@@ -281,16 +298,19 @@
                 <div class="box">
 					<div class="mv sbox">
 						<h4>动漫</h4>
+						<p>碧蓝之海</p>
 						<img src="img/m1.png" alt="" id="mv-plar"><br>
 						<button id="mvrondow" class="button-btn">换一个</button>
 					</div>
 					<div class="gm sbox">
 						<h4>游戏</h4>
+						<p>apex</p>
 						<img src="img/apex.png" alt="" id="gm-plar"><br>
 						<button id="gmrondow" class="button-btn">换一个</button>
 					</div>
 					<div class="eat sbox">
 						<h4>美食</h4>
+						<p>热干面</p>
 						<img src="img/e1.png" alt="" id="eat-plar"><br>
 						<button id="eatrondow" class="button-btn">换一个</button>
 					</div>
@@ -309,7 +329,7 @@
 				</div>
 				
 				<div class="right">
-					<img src="img/tu1.png" alt="" id="now-img"><br>
+					<img src="img/tu1.png" alt="" id="now-img" title="点点看"><br>
 					<button id="img-random" class="button-btn">随机播放</button>
 				</div>
 			</div>
@@ -330,40 +350,45 @@
 		
 		// 推荐
 		const mvFiles = [
-		    {path: 'img/m1.png' },
-		    {path: 'img/m2.png' },
-			{path: 'img/m3.png' },
-			{path: 'img/m4.png' },
-			{path: 'img/m5.png' },
+		    {path: 'img/m1.png',title:'碧蓝之海'},
+		    {path: 'img/m2.png',title:'排球少年'},
+			{path: 'img/m3.png',title:'强风吹拂'},
+			{path: 'img/m4.png',title:'JOJO的奇妙冒险'},
+			{path: 'img/m5.png',title:'四月是你的谎言'},
 			
 		];
 		document.getElementById("mvrondow").addEventListener("click",function(){
+			const p=document.querySelector(".box .mv p")
 			let number=parseInt(Math.random()*mvFiles.length)
 			mimg=document.getElementById("mv-plar")
 			mimg.src=mvFiles[number].path
+			p.innerHTML=mvFiles[number].title
 		})
 		const gmFiles = [
-		    {path: 'img/apex.png' },
-		    {path: 'img/lol.png' },
-			{path: 'img/csgo.png' },
-			{path: 'img/valorant.png' },
-			
+		    {path: 'img/apex.png',title:'Apex' },
+		    {path: 'img/lol.png',title:'LoL' },
+			{path: 'img/csgo.png',title:'csgo' },
+			{path: 'img/valorant.png',title:'valorant' },
 		];
 		document.getElementById("gmrondow").addEventListener("click",function(){
+			const p=document.querySelector(".box .gm p")
 			let number=parseInt(Math.random()*gmFiles.length)
 			gimg=document.getElementById("gm-plar")
 			gimg.src=gmFiles[number].path
+			p.innerHTML=gmFiles[number].title
 		})
 		const eatFiles = [
-		    {path: 'img/e1.png' },
-		    {path: 'img/e2.png' },
-			{path: 'img/e3.png' },
+		    {path: 'img/e1.png',title:'热干面'},
+		    {path: 'img/e2.png',title:'蒜蓉小龙虾'},
+			{path: 'img/e3.png',title:'地锅鸡'},
 			
 		];
 		document.getElementById("eatrondow").addEventListener("click",function(){
+			const p=document.querySelector(".box .eat p")
 			let number=parseInt(Math.random()*eatFiles.length)
 			eimg=document.getElementById("eat-plar")
 			eimg.src=eatFiles[number].path
+			p.innerHTML=eatFiles[number].title
 		})
 		// 功能区
 			//随机播放音乐
@@ -375,7 +400,7 @@
 						
 						// 音乐文件列表
 						const musicFiles = [
-							{ name: 'Call your name', path: 'Dulcim_嘟 - Call your name.mp3' },
+							{ name: 'Call your name', path: 'music/Dulcim_嘟 - Call your name.mp3' },
 							{ name: 'Here With You', path: 'music/Here With You.mp3' },
 							{ name: 'Insomnia', path: 'music/Insomnia (0.8x).mp3' },
 							{ name: 'Repeat', path: 'music/Repeat.mp3' },
